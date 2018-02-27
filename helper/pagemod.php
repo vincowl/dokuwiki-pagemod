@@ -40,7 +40,7 @@ class helper_plugin_pagemod_pagemod extends helper_plugin_bureaucracy_action {
             resolve_pageid(getNS($ID), $page_to_modify, $ignored);
         }
 
-        $template_section_id = cleanID(array_shift($argv));
+        $template_section_id = cleanID($this->replace(array_shift($argv)));
 
         if(!page_exists($page_to_modify)) {
             msg(sprintf($this->getLang('e_pagenotexists'), html_wikilink($page_to_modify)), -1);
